@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def create
-	  @user = User.new(name:params[:user][:name], email:params[:user][:email])
+	  @user = User.new(
+		  name: params[:user][:name], 
+		  email: params[:user][:email],
+		  avatar: params[:user][:avatar],
+	  )
 	  @user.save!
 	  redirect_to users_path
   end
@@ -15,7 +19,10 @@ class UsersController < ApplicationController
 
   def update
 	  @user = User.find_by(id: params[:id])
-	  @user.update_attributes!(name: params[:user][:name], email: params[:user][:email])
+	  @user.update_attributes!(
+		  name: params[:user][:name], 
+		  email: params[:user][:email],
+	  )
 	  redirect_to user_path(@user)
   end
 
