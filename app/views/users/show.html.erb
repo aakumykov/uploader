@@ -3,11 +3,12 @@
 <table width="50%" align="center" border="3" cols="3">
 	<tr>
 		<td>Имя: </td>
-		<td colspan="2"><%= @user.name  %></td>
+		<td><%= @user.name  %></td>
+		<td rowspan="2"><%= image_tag @user.avatar.url(:medium) %></td>
 	</tr>
 	<tr>
 		<td>Почта: </td>
-		<td colspan="2"><%= @user.email  %></td>
+		<td><%= @user.email  %></td>
 	</tr>
 	<tr>
 		<td>
