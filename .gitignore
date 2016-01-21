@@ -16,5 +16,5 @@
 !/log/.keep
 /tmp
 
-# Cache(?)
-public/system/*
+# Хранилище аватаров гема "Прищепка"
+#public/system/*
