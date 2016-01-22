@@ -1,9 +1,9 @@
-<%= form_for(@user) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+<%= form_for @user do |f| %>
+	<%= f.label :name, 'Имя' %>
+	<%= f.text_field :name %><br><br>
 
-	<%= f.label :email %>
-	<%= f.text_field :email %>
+	<%= f.label :email, 'Почта' %>
+	<%= f.text_field :email %><br><br>
 
 	<%= f.submit %>
 <% end %>

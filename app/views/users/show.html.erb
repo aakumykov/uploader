@@ -3,11 +3,14 @@
 <table width="50%" align="center" border="3" cols="3">
 	<tr>
 		<td>Имя: </td>
-		<td colspan="2"><%= @user.name  %></td>
+		<td><%= @user.name  %></td>
+		<td rowspan="2" align="center" valign="center">
+			<%= image_tag @user.avatar.url(:medium) %>
+		</td>
 	</tr>
 	<tr>
 		<td>Почта: </td>
-		<td colspan="2"><%= @user.email  %></td>
+		<td><%= @user.email  %></td>
 	</tr>
 	<tr>
 		<td>
@@ -15,7 +18,15 @@
 				<button>Список</button>
 			<% end %>
 		</td>
-		<td><%= link_to 'Изменить', edit_user_path(@user) %></td>
-		<td><%= link_to 'Удалить', user_path(@user), method: :delete %></td>
+		<td>
+			<%= link_to edit_user_path(@user) do %>
+				<button>Изменить</button>
+			<% end %>
+		</td>
+		<td>
+			<%= link_to users_path, method: :delete, data: { confirm: 'Удалить?' } do %>
+				<button>Удалить</button>
+			<% end %>
+		</td>
 	</tr>
 </table>
