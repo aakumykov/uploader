@@ -1,12 +1,12 @@
-<%= form_for(@user, html:{multipart:true}) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %><br>
+<%= form_for @user do |f| %>
+	<%= f.label :name, 'Имя' %>
+	<%= f.text_field :name %><br><br>
 
-	<%= f.label :email %>
-	<%= f.text_field :email %><br>
-
-	<%= f.label :avatar %>
-	<%= f.file_field :avatar %><br>
+	<%= f.label :email, 'Почта' %>
+	<%= f.text_field :email %><br><br>
+	
+	<%= f.label :avatar, 'Лик' %>
+	<%= f.file_field :avatar %><br><br>
 
 	<%= f.submit %>
 <% end %>

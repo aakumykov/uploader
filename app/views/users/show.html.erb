@@ -4,7 +4,9 @@
 	<tr>
 		<td>Имя: </td>
 		<td><%= @user.name  %></td>
-		<td rowspan="2" align="center" valign="center"><%= image_tag @user.avatar.url(:medium) %></td>
+		<td rowspan="2" align="center" valign="center">
+			<%= image_tag @user.avatar.url(:medium) %>
+		</td>
 	</tr>
 	<tr>
 		<td>Почта: </td>
@@ -16,7 +18,15 @@
 				<button>Список</button>
 			<% end %>
 		</td>
-		<td><%= link_to 'Изменить', edit_user_path(@user) %></td>
-		<td><%= link_to 'Удалить', user_path(@user), method: :delete %></td>
+		<td>
+			<%= link_to edit_user_path(@user) do %>
+				<button>Изменить</button>
+			<% end %>
+		</td>
+		<td>
+			<%= link_to users_path, method: :delete, data: { confirm: 'Удалить?' } do %>
+				<button>Удалить</button>
+			<% end %>
+		</td>
 	</tr>
 </table>
