@@ -8,12 +8,13 @@ class UsersController < ApplicationController
 	end
 	
 	def create
-		#@user = User.create!(user_params)
-		@user = User.create!(
-			name: params[:user][:name],
-			email: params[:user][:email],
-		)
-		redirect_to users_path
+		@user = User.new(user_params)
+		begin
+			@user.save!
+			redirect_to users_path
+		rescue
+			render :new
+		end
 	end
 
 	def show
@@ -39,6 +40,6 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.require(:user).permit(:avatar)
+			params.require(:user).permit(:name, :email, :avatar)
 		end
 end

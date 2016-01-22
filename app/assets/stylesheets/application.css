@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.field_with_errors INPUT {
+	border: 1px dotted red;
+}
