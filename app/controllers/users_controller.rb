@@ -26,11 +26,9 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		puts "===== Users#update, params: =====> #{params}"
+		#puts "===== Users#update, params: =====> #{params}"
 		@user = User.find_by(id: params[:id])
-		
 		#@user.avatar = nil if not params[:user][:avatar].nil?
-		
 		@user.update_attributes!(user_params)
 		redirect_to user_path(@user)
 	end
