@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-	enum kind: ['text','picture','audio','video']
+	#enum kind: ['text','picture','audio','video']
+	enum kind: { 'текст'=>'text', 'изображение'=>'picture', 'звук'=>'audio', 'видео'=>'video' }
 
 	validates :name, presence: true
 	

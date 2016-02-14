@@ -4,7 +4,7 @@
 	<% @list.each do |u| %>
 		<li>
 			<%= image_tag u.avatar.url(:thumb) %> 
-			<%= link_to u.name, user_path(u) %> 
+			<%= link_to "#{u.name} (#{u.kind})", user_path(u) %> 
 			<%= link_to '(и)', edit_user_path(u), title:'Изменить' %> 
 			<%= link_to '(x)', user_path(u), method: :delete, title:'Удалить', data: { confirm: "Удалить пользователя '#{u.name}'?" } %>
 		</li>
