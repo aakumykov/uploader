@@ -5,7 +5,7 @@
 		<td>Имя: </td>
 		<td><%= @user.name  %></td>
 		<td rowspan="2" align="center" valign="center">
-			<%= image_tag @user.avatar.url(:medium) %>
+			<%= image_tag @user.avatar.url(:medium) if @user.avatar %>
 		</td>
 	</tr>
 	<tr>
