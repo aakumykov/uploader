@@ -28,7 +28,7 @@
 			<% end %>
 		</td>
 		<td>
-			<%= link_to users_path, method: :delete, data: { confirm: 'Удалить?' } do %>
+			<%= link_to user_path(@user), method: :delete, data: { confirm: 'Удалить?' } do %>
 				<button>Удалить</button>
 			<% end %>
 		</td>
