@@ -1,4 +1,14 @@
 <%= form_for @user do |f| %>
+	<!--<label>Тип
+		<select name='user[kind]'>
+			<% User.kinds.each do |value,id| %>
+				<option value="<%= value %>"><%= value %></option>
+			<% end %>
+		</select>
+	</label><br><br>-->
+	
+	<%= select_tag 'user[kind]', options_for_select(User.kinds.keys), prompt:'тип записи' %>
+
 	<%= f.label :name, 'Имя' %>
 	<%= f.text_field :name %><br><br>
 
