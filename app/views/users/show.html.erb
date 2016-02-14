@@ -1,18 +1,22 @@
 <h1>Users#show</h1>
 
 <table width="50%" align="center" border="3" cols="3">
-	<tr>
-		<td>Имя: </td>
-		<td><%= @user.name  %></td>
-		<td rowspan="2" align="center" valign="center">
+	<tr><!-- тип, аватар -->
+		<td>Тип:</td>
+		<td><%= @user.kind %></td>
+		<td rowspan="3" align="center" valign="center">
 			<%= image_tag @user.avatar.url(:medium) %>
 		</td>
 	</tr>
-	<tr>
+	<tr><!-- имя -->
+		<td>Имя: </td>
+		<td><%= @user.name  %></td>
+	</tr>
+	<tr><!-- почта -->
 		<td>Почта: </td>
 		<td><%= @user.email  %></td>
 	</tr>
-	<tr>
+	<tr><!-- кнопки -->
 		<td>
 			<%= link_to users_path do %>
 				<button>Список</button>

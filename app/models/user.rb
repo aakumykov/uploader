@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	enum kind: ['draft','text','picture','audio','video']
+
 	validates :name, presence: true
 
 	has_attached_file :avatar, styles: { medium: "180x180>", thumb: "50x50>" }, default_url: "/images/:style/missing.png"
