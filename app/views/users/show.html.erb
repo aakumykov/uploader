@@ -5,7 +5,9 @@
 		<td>Тип:</td>
 		<td><%= @user.kind %></td>
 		<td rowspan="3" align="center" valign="center">
-			<%= image_tag @user.avatar.url(:medium) %>
+			<%= link_to @user.avatar.url do %>
+				<%= image_tag @user.avatar.url(:medium) %>
+			<% end %>
 		</td>
 	</tr>
 	<tr><!-- имя -->
