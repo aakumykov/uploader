@@ -2,8 +2,32 @@ class User < ActiveRecord::Base
 	enum kind: { 'текст'=>'text', 'картинка'=>'picture', 'звук'=>'audio', 'видео'=>'video' }
 
 	has_attached_file :avatar, {
-		styles: { medium: "180x180>", thumb: "50x50>" }, 
-		default_url: "/images/:style/missing.png",
+		styles: lambda { |file|
+			#puts "===== styles lambda =====> #{file.content_type}"
+			list = {
+				'audio' => nil,
+				'image' => { medium: "180x180>", thumb: "50x50>" },
+			}
+			list.each { |pattern,style|
+				if file.content_type.match("^#{Regexp.escape(pattern)}/") then
+					puts "СОВПАДЕНИЕ: #{pattern} => #{style}"
+					return style
+				end
+			}
+		},
+		#~ processors: lambda { |file|
+			#~ puts "===== styles lambda =====> #{file.class}"
+			#~ list = {
+				#~ 'audio' => nil,
+				#~ 'image' => nil,
+			#~ }
+			#~ list.each { |pattern,style|
+				#~ if file.content_type.match("^#{Regexp.escape(pattern)}/") then
+					#~ puts "СОВПАДЕНИЕ: #{pattern} => #{style}"
+					#~ return style
+				#~ end
+			#~ }
+		#~ }
 	}
 
 	validates :name, presence: true
