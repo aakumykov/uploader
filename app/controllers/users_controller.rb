@@ -29,8 +29,11 @@ class UsersController < ApplicationController
 		puts "===== Users#update, params: =====> #{params}"
 		@user = User.find_by(id: params[:id])
 		#@user.avatar = nil if not params[:user][:avatar].nil?
-		@user.update_attributes!(user_params)
-		redirect_to user_path(@user)
+		if @user.update_attributes(user_params)
+			redirect_to user_path(@user)
+		else
+			render :edit
+		end
 	end
 
 	def destroy

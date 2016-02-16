@@ -5,3 +5,9 @@
 UL {
 	list-style-type: none;
 }
+
+#error_explanation {
+	margin-bottom: 23px;
+	color:red;
+	LI { color: crimson; }
+}
