@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_action :debug_info
+
 	def index
 		@list = User.all
 	end
@@ -9,6 +11,11 @@ class UsersController < ApplicationController
 	
 	def create
 		@user = User.new(user_params)
+		
+		puts "===== UsersController#create ====="
+		puts @user.file
+		puts "===== UsersController#create ====="
+		
 		begin
 			@user.save!
 			redirect_to users_path
@@ -45,6 +52,22 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.require(:user).permit(:name, :email, :avatar, :kind)
+			params.require(:user).permit(
+				:name, 
+				:email, 
+				:avatar, 
+				:kind,
+			)
+		end
+		
+		def debug_info
+			puts ''
+			puts "========== debug_info starts =========="
+			ap params
+			#~ if !params[:user].nil?
+				#~ puts params[:user][:avatar].content_type if params[:user].has_key?(:avatar)
+			#~ end
+			puts "========== debug_info ends =========="
+			puts ''
 		end
 end

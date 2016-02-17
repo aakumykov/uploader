@@ -1,34 +1,27 @@
 class User < ActiveRecord::Base
 	enum kind: { 'текст'=>'text', 'картинка'=>'picture', 'звук'=>'audio', 'видео'=>'video' }
 
-	has_attached_file :avatar, {
-		styles: lambda { |file|
-			#puts "===== styles lambda =====> #{file.content_type}"
-			list = {
-				'audio' => nil,
-				'image' => { medium: "180x180>", thumb: "50x50>" },
-			}
-			list.each { |pattern,style|
-				if file.content_type.match("^#{Regexp.escape(pattern)}/") then
-					puts "СОВПАДЕНИЕ: #{pattern} => #{style}"
-					return style
-				end
-			}
-		},
-		#~ processors: lambda { |file|
-			#~ puts "===== styles lambda =====> #{file.class}"
-			#~ list = {
-				#~ 'audio' => nil,
-				#~ 'image' => nil,
-			#~ }
-			#~ list.each { |pattern,style|
-				#~ if file.content_type.match("^#{Regexp.escape(pattern)}/") then
-					#~ puts "СОВПАДЕНИЕ: #{pattern} => #{style}"
-					#~ return style
-				#~ end
-			#~ }
-		#~ }
-	}
+	has_attached_file :avatar
+	validates_attachment_content_type :avatar, 
+	content_type: [
+		#~ /.*/,
+		#~ 'audio/mpeg', 
+		#~ 'audio/x-mpeg', 
+		#~ 'audio/mp3', 
+		#~ 'audio/x-mp3', 
+		#~ 'audio/mpeg3', 
+		#~ 'audio/x-mpeg3', 
+		#~ 'audio/mpg', 
+		#~ 'audio/x-mpg', 
+		#~ 'audio/x-mpegaudio',
+		'audio/ogg',
+		'audio/x-ogg',
+		'video/ogg',
+		'video/x-ogg',
+		'application/ogg',
+		'application/x-ogg',
+		
+	]
 
 	validates :name, presence: true
 
@@ -39,16 +32,16 @@ class User < ActiveRecord::Base
 	#validates :avatar, attachment_size: { less_than: 1.megabytes }
 	#validates :avatar, attachment_content_type: { content_type: 'application/vnd.oasis.opendocument.text' }
 	#validates :avatar, attachment_content_type: { content_type: 'application/msword' }
-	validates(
-		:avatar, 
-		attachment_content_type: { 
-			content_type: [
-				'image/jpeg',
-				'image/png',
-				'image/gif',
-				'audio/x-vorbis+ogg',
-				'audio/mpeg',
-			]
-		}
-	)
+	#~ validates(
+		#~ :avatar, 
+		#~ attachment_content_type: { 
+			#~ content_type: [
+				#~ 'image/jpeg',
+				#~ 'image/png',
+				#~ 'image/gif',
+				#~ 'audio/x-vorbis+ogg',
+				#~ 'audio/mpeg',
+			#~ ]
+		#~ }
+	#~ )
 end
