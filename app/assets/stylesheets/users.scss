@@ -6,8 +6,13 @@ UL {
 	list-style-type: none;
 }
 
+.field_with_errors INPUT {
+	border: 1px dotted red;
+}
+
 #error_explanation {
 	margin-bottom: 23px;
 	color:red;
 	LI { color: crimson; }
 }
+
