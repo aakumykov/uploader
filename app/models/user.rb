@@ -23,6 +23,14 @@ class User < ActiveRecord::Base
 		'application/msword',
 		'application/vnd.oasis.opendocument.text',
 		'application/pdf',
+		'application/x-bittorrent',
+		'audio/mpeg',
+		'audio/x-mpeg',
+		'application/mpeg',
+		'application/x-mpeg',
+		'audio/x-vorbis+ogg',
+		'application/ogg',
+		'video/ogg',
 	]
 
 	validates :name, presence: true
