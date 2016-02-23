@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		
 		puts "===== UsersController#create ====="
-		puts @user.file
+		puts @user.avatar
 		puts "===== UsersController#create ====="
 		
 		begin

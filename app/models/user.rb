@@ -20,7 +20,9 @@ class User < ActiveRecord::Base
 		'video/x-ogg',
 		'application/ogg',
 		'application/x-ogg',
-		
+		'application/msword',
+		'application/vnd.oasis.opendocument.text',
+		'application/pdf',
 	]
 
 	validates :name, presence: true
