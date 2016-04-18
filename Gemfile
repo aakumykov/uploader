@@ -32,7 +32,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem "paperclip", "~> 4.3"
+#gem "paperclip", "~> 4.3"
+#gem "paperclip", "~> 5.0.0.beta1"
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
 gem 'mime-types'
 
 gem 'bootstrap-sass', '~> 3.3.6'
