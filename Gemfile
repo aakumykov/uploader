@@ -33,8 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 #gem "paperclip", "~> 4.3"
-#gem "paperclip", "~> 5.0.0.beta1"
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip", "~> 5.0.0.beta1"
+#gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 gem 'aws-sdk'
 
