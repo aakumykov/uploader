@@ -1,7 +1,7 @@
 <%= form_for @user do |f| %>
 	<%=  render 'errors', object: f.object %>
 	
-	<%= select_tag 'user[kind]', options_for_select(User.kinds) %>
+	<%= select_tag 'user[kind]', options_for_select(User.kinds, 'picture') %>
 
 	<%= f.label :name, 'Имя' %>
 	<%= f.text_field :name %><br><br>
