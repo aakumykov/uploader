@@ -22,5 +22,9 @@ module Uploader
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.paperclip_defaults = { 
+        s3_host_name: "s3-#{ENV['AWS_REGION']}.amazonaws.com", 
+    }
   end
 end
